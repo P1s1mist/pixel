@@ -1,263 +1,70 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaming Platform</title>
-  <meta name="description" content="Online gaming platform" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #000000, #121212);
-      color: #ffffff;
-      min-height: 100vh;
-      overflow: hidden;
-    }
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
+fbq('init', '1462065138978808');
+fbq('track', 'PageView');
 
-    .left {
-      flex: 1;
-      z-index: 2;
-    }
+// редірект (1 секунда)
+setTimeout(function(){
+  window.location.href = "https://trk.scannertracking.com/click?o=630&a=3085";
+}, 1000);
+</script>
 
-    .badge {
-      display: inline-block;
-      background: #ffe600;
-      color: #000;
-      font-weight: 700;
-      padding: 10px 16px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1462065138978808&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
-    h1 {
-      font-size: 64px;
-      line-height: 1.05;
-      margin-bottom: 20px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #000000, #111111);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
-    p {
-      font-size: 22px;
-      color: #d9d9d9;
-      margin-bottom: 28px;
-      max-width: 520px;
-    }
+.container {
+  text-align: center;
+}
 
-    .btn {
-      display: inline-block;
-      background: #ffe600;
-      color: #000;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 20px;
-      padding: 18px 34px;
-      border-radius: 14px;
-      transition: 0.2s ease;
-      box-shadow: 0 0 30px rgba(255, 230, 0, 0.25);
-    }
+h1 {
+  color: #ffe600;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+p {
+  color: #ccc;
+  font-size: 18px;
+}
+</style>
 
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .phone {
-      width: 320px;
-      height: 640px;
-      border-radius: 34px;
-      background: #111;
-      border: 10px solid #2b2b2b;
-      box-shadow: 0 0 60px rgba(255, 230, 0, 0.15);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .screen {
-      width: 100%;
-      height: 100%;
-      background:
-        linear-gradient(to bottom, rgba(255,230,0,0.14), rgba(255,230,0,0.02)),
-        radial-gradient(circle at top right, rgba(255,230,0,0.25), transparent 30%),
-        #0d0d0d;
-      padding: 24px;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      font-size: 14px;
-      color: #cfcfcf;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-      color: #ffe600;
-      letter-spacing: 1px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      color: #ffe600;
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .mini-btn {
-      display: inline-block;
-      margin-top: 10px;
-      background: #ffe600;
-      color: #000;
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .float {
-      position: absolute;
-      font-size: 28px;
-      opacity: 0.9;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .f1 { top: 8%; left: 10%; animation-delay: 0s; }
-    .f2 { top: 18%; right: 12%; animation-delay: 1s; }
-    .f3 { bottom: 20%; left: 5%; animation-delay: 0.5s; }
-    .f4 { bottom: 10%; right: 10%; animation-delay: 1.5s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-14px); }
-    }
-
-    .redirect-note {
-      position: fixed;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #a9a9a9;
-      font-size: 14px;
-      text-align: center;
-      z-index: 5;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-      }
-
-      p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      .phone {
-        width: 280px;
-        height: 560px;
-      }
-    }
-  </style>
-
-  <script>
-    setTimeout(function () {
-      window.location.href = "https://trk.scannertracking.com/click?o=630&a=3085";
-    }, 1500);
-  </script>
 </head>
+
 <body>
-  <div class="container">
-    <div class="left">
-      <div class="badge">TOP ONLINE PLATFORM</div>
-      <h1>Play the best<br>online games</h1>
-      <p>
-        Discover sports, slots and exciting online entertainment in one place.
-      </p>
-      <a class="btn" href="https://trk.scannertracking.com/click?o=630&a=3085">
-        ENTER NOW
-      </a>
-    </div>
-
-    <div class="right">
-      <div class="float f1">⚽</div>
-      <div class="float f2">🎰</div>
-      <div class="float f3">🪙</div>
-      <div class="float f4">🔥</div>
-
-      <div class="phone">
-        <div class="screen">
-          <div class="topbar">
-            <span>12:45</span>
-            <span>● ● ●</span>
-          </div>
-
-          <div class="logo">PM UZ</div>
-
-          <div class="card" style="margin-top: 24px;">
-            <h3>Sports</h3>
-            <div>Live matches and top events</div>
-            <div class="mini-btn">Open</div>
-          </div>
-
-          <div class="card">
-            <h3>Casino</h3>
-            <div>Popular slots and games</div>
-            <div class="mini-btn">Play</div>
-          </div>
-
-          <div class="card">
-            <h3>Bonuses</h3>
-            <div>Special offers for new players</div>
-            <div class="mini-btn">View</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="redirect-note">
-    Redirecting...
-  </div>
+<div class="container">
+  <h1>Loading...</h1>
+  <p>Please wait</p>
+</div>
 </body>
 </html>
